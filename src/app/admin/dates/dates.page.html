@@ -1,0 +1,72 @@
+<ion-header color>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>مواعيد</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content color="medium">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="9" offset-sm="1">
+        <div *ngIf="isLoading" class="ion-text-center">
+          <ion-spinner color="warning"></ion-spinner>
+        </div>
+
+        <ion-card color="danger" *ngIf="!isLoading &&!isToday">
+          <ion-card-header>
+
+            <ion-card-title>
+              <h1>مسكر
+                <ion-icon name="sad"></ion-icon>
+              </h1>
+            </ion-card-title>
+          </ion-card-header>
+
+        </ion-card>
+        <ion-card color="primary" *ngIf="!isLoading && isToday">
+          <ion-card-header>
+            <ion-card-title>
+              <h1>{{today}}
+                <ion-icon name="happy"></ion-icon>
+              </h1>
+              <ion-card-subtitle>مواعيد اليوم</ion-card-subtitle>
+
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item-sliding *ngFor="let d of currDay.dates  ; let i = index" #slidingItem>
+              <ion-card *ngIf="d!=''" color="warning">
+
+                <ion-card-content>
+                  <ion-card-title>{{this.hours[i]}}</ion-card-title>
+                  <ion-card-subtitle>{{d}}</ion-card-subtitle>
+                </ion-card-content>
+              </ion-card>
+
+              <ion-card *ngIf="d==''" color="success">
+                <ion-card-content>
+                  <ion-card-title>{{this.hours[i]}}</ion-card-title>
+                  <ion-card-subtitle>فاضي</ion-card-subtitle>
+
+                  <!-- <ion-item-option color="danger" (click)="onEdit(d, slidingItem)">
+                    حجز
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </ion-item-option> -->
+
+                </ion-card-content>
+              </ion-card>
+
+            </ion-item-sliding>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
