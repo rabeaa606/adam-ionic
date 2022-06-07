@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" contentId="menuContent">
+  <ion-menu *ngIf="authService.isAdmin" side="start" contentId="menuContent">
     <ion-header>
       <ion-toolbar>
         <ion-title>
@@ -9,21 +9,16 @@
     </ion-header>
 
     <ion-content>
-      <ion-list class="">
-        <ion-menu-toggle *ngIf="!authService.isAdmin">
-          <ion-item lines="none" routerLink="/customer">
+      <ion-list *ngIf="authService.isAdmin" class="">
+
+        <ion-menu-toggle *ngIf="authService.isAdmin">
+          <ion-item lines="none" routerLink="home/admin/dates">
             <ion-icon name="business" slot="start"></ion-icon>
             <ion-label>مواعيد</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle *ngIf="authService.isAdmin">
-          <ion-item lines="none" routerLink="/admin/dates">
-            <ion-icon name="business" slot="start"></ion-icon>
-            <ion-label>مواعيد</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle *ngIf="authService.isAdmin">
-          <ion-item lines="none" routerLink="/admin/program">
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="home/admin/program">
             <ion-icon name="checkbox-outline" slot="start"></ion-icon>
             <ion-label>برنامج</ion-label>
           </ion-item>

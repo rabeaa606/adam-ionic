@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Adam</string>
     <string name="title_activity_main">Adam</string>
-    <string name="package_name">io.ionic.adamBarber</string>
-    <string name="custom_url_scheme">io.ionic.adamBarber</string>
+    <string name="package_name">io.ionic.adam</string>
+    <string name="custom_url_scheme">io.ionic.adam</string>
 </resources>

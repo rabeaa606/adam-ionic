@@ -47,12 +47,12 @@ export class AuthPage implements OnInit {
             loadingEl.dismiss();
             if (email == 'admin@adam.com') {
               this.authService.isAdmin = true;
-              this.router.navigateByUrl('admin/dates');
+              this.router.navigateByUrl('/home/admin/dates');
 
             }
             else {
               this.authService.isAdmin = false;
-              this.router.navigateByUrl('customer');
+              this.router.navigateByUrl('/home/customer');
 
             }
           },

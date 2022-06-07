@@ -143,7 +143,7 @@ export class AuthService {
     }
     this._user.next(null);
     Storage.remove({ key: 'authData' });
-    this.router.navigateByUrl('/auth');
+    this.router.navigateByUrl('/home');
   }
 
   ngOnDestroy() {

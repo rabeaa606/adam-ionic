@@ -38,7 +38,7 @@ export class DatesService {
       take(1),
       switchMap(token => {
         return this.http.get<{ [key: string]: date }>(
-          `${this.firebaseUrl}/dates-maked.json?auth=${token}`
+          `${this.firebaseUrl}/dates-maked.json`
         );
       }),
       map(resData => {
@@ -99,7 +99,7 @@ export class DatesService {
           oldPlace.date,
         );
         return this.http.put(
-          `${this.firebaseUrl}//dates-maked/${dateId}.json?auth=${fetchedToken}`,
+          `${this.firebaseUrl}//dates-maked/${dateId}.json`,
           { ...updatedDates[updatedDateIndex], id: null }
         );
       }),

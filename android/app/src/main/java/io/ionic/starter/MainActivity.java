@@ -1,4 +1,4 @@
-package io.ionic.adamBarber;
+package io.ionic.adam;
 
 import com.getcapacitor.BridgeActivity;
 
